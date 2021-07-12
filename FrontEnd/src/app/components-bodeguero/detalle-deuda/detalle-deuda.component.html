@@ -1,0 +1,66 @@
+<body class = "trabFinanzas">
+    <div class = "wrapper-box">
+        <div class = "header-content">
+            <h1>DEUDA DEL MES</h1>
+            <h3>Moneda: {{cuentaCredito.moneda}}</h3>
+        </div>
+        <div class = "main-content">
+            <div class = "left-content">
+                <h3>Cliente: {{cuentaCredito.cliente.nombre}}</h3>
+                <h3 *ngIf ="esInactivo()">Fecha apertura: {{fechaApertura}}</h3>
+                <h3>Fecha límite: {{fechaLimite}}</h3>
+                <h3 *ngIf ="esActivo()">Fecha actual: {{fechaAct}}</h3>
+                <h3 *ngIf ="esInactivo()">Fecha pago: {{calcFechaPago()}}</h3>
+            </div>
+            <div class = "right-content">
+                <h3>Concepto: Importe</h3>
+                <h3>Consumo: {{consumo}}</h3>
+                <h3>Mantenimiento: S/.5.00</h3>
+                <h3>Interés: {{interes}}</h3>
+                <h3>Mora: {{mora}}</h3>
+                <h3>Total: {{total}}</h3>
+            </div>
+        </div>
+        <div class = "btn-content">
+            <div *ngIf = "esActivo()">
+                <div class = "liquidar-btn2">
+                    <span>AMORTIZAR</span>
+                </div>
+                <div class = "liquidar-btn" (click) = "registrarPago()">
+                    <span>LIQUIDAR</span>
+                </div>
+                <div class = "imprimir-btn2">
+                    <span>IMPRIMIR</span>
+                </div>
+            </div>
+            <div *ngIf = "esInactivo()" class = "imprimir-btn">
+                <span>IMPRIMIR</span>
+            </div>
+        </div>
+    </div>
+    <div class = "overlay2">
+        <div class = "popup-search2">
+            <div class = "popup-content2">
+                <span>Registrado con éxito</span>
+                <button type = "submit" class = "btn-buscar" routerLink = "/listaclientes/1">
+                    Finalizar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class = "overlay3">
+        <div class = "popup-search3">
+            <span class="icon-cross"></span>
+            <div class = "popup-content3">
+                <form (ngSubmit) = "registrarMortizacion()" #registrarForm="ngForm">
+                    <span>Ingrese el monto</span>
+                    <input type="text" placeholder="Monto" id = "valorMortizacion" [(ngModel)] = "valorMortizacion" name ="valorMortizacion" required pattern="[0-9]+([\.,][0-9]+)?" step="0.01">
+                    <button type = "submit" class = "btn-buscar" [disabled]="registrarForm.form.invalid"> 
+                        Aceptar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,264 @@
+body{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    user-select: none;
+}
+
+.wrapper-box{
+    position: absolute;
+    z-index: 995;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0px 2px 0 #000000;
+    margin-left: 22%;
+    margin-top: 10%;
+    width: 55%;
+    height: 65%;
+    padding: 2%;
+    border-radius: 2%;
+}
+
+.upper-head{
+    position: relative;
+    height: 70px;
+    padding-left: auto;
+    box-shadow: 0px 1px 0px 0 #000000;
+}
+
+.upper-head h1{
+    font-size: 28px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.upper-head h3{
+    position: relative;
+    left: 40%;
+}
+
+h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.upper-head *{
+    display: inline;
+}
+
+.left-box{
+    position: relative;
+    top: -83px;
+    width: 45%;
+}
+
+.title-box-left{
+    position: relative;
+    padding: 3%;
+    margin-left: 2%;
+    width: 45%;
+}
+
+.title-box-left *{
+    line-height: 258%;
+}
+
+.form-box-left{
+    position: relative;
+    width: 30%;
+}
+
+.form-box-left input, select{
+    position: relative;
+    width: 240px;
+}
+
+.form-box-left label, input, select{
+    display: block;
+}
+
+.form-box-left label{
+    margin-bottom: 36%;
+}
+
+.left-box .title-box-left,.form-box-left{
+    display: inline-block;
+}
+
+.right-box{
+    position: relative;
+    margin-left: 2%;
+    width: 50%;
+    top: -3px;
+}
+
+.right-box-up{
+    position: relative;
+    height: 40%;
+}
+
+.right-box-down{
+    position: relative;
+    top: -76px;
+    height: 40%;
+}
+
+.right-box-down .title-box-right, .form-box-right2{
+    display: inline-block;
+}
+
+.title-box-right{
+    position: relative;
+    padding: 3%;
+    margin-left: 2%;
+    width: 45%;
+}
+
+.title-box-right *{
+    line-height: 258%;
+}
+
+.form-box-right{
+    position: relative;
+    width: 30%;
+}
+
+.form-box-right input{
+    position: relative;
+    width: 240px;
+}
+
+.right-box .title-box-right,.form-box-right{
+    display: inline-block;
+}
+
+.form-box-right label, input, select{
+    display: block;
+}
+
+.form-box-right label{
+    margin-bottom: 35%;
+}
+
+.form-box-right2{ 
+    position: relative;
+    margin-left: 20%;
+    top: 82px;
+    width: 30%;
+}
+
+.form-box-right2 label{
+    display: block;
+}
+
+.form-box-right2 label{
+    margin-bottom: 25%;
+}
+
+.wrapper-box .left-box,.right-box{
+    display: inline-block;
+}
+
+.form-box-right2 button {
+    position: relative;
+    background-color: #327ceb;
+    box-shadow: 0 0 2px 0 #000000;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    width: 155px;
+    height: 65px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s ease all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -392px;
+    top: 25px;
+}
+
+.form-box-right2 button:hover{
+    background-color: #1d1c1c;
+    color: rgb(255, 255, 255);
+}
+
+.overlay2{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    visibility: hidden;
+    z-index: 997;
+}
+
+.overlay2.active{
+    visibility: visible;
+}
+
+.popup-search2{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    padding:1.5%;
+    padding-left: 5%;
+    width: 25%;
+    height: 25%;
+    transition: .3s ease all;
+    transform: scale(0.7);
+    border-radius: 3%;
+    border-color: rgb(180, 187, 187);
+    box-shadow: rgba(0, 0, 0, 0.3) -1px 1px 50px 50px;
+    margin-left: 38.5%;
+    margin-top: 17%;
+}
+
+.popup-search2.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.popup-search2 span{
+    color: black;
+    margin-left: -11%;
+    font-size: 40px;
+
+}
+
+.popup-search2 *{
+    display:block;
+}
+
+input{
+    outline: none;
+}
+
+.popup-content2 input{
+    margin-top: 7%;
+}
+
+.popup-content2 button {
+    position: fixed;
+    background-color: #182a91;
+    border-radius: 5%;
+    margin-left: 10%;
+    margin-top: 8%;
+    width: 40%;
+    height: 30%;
+    border: darkgray;
+    color: rgb(240, 240, 240);
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    transition: .3s ease all;
+}
+
+.popup-content2 button:hover {
+    background-color: hsl(214, 73%, 51%);
+    color: rgb(235, 248, 255);
+}
+.icon-cross{
+    position: fixed;
+    margin-top: -5%;
+    margin-left: 65%;
+    cursor: pointer;
+}

@@ -1,0 +1,42 @@
+<body class = "trabFinanzas">
+    <div class = "wrapper-box">
+        <div class = "header-title">
+            <h1>NUEVA VENTA</h1>
+            <h3 *ngIf = "esSoles()">Disponible: S/.{{disponible}}</h3>
+            <h3 *ngIf = "esDolares()">Disponible: ${{disponible}}</h3>
+        </div>
+        <div class = "content-box">
+            <div class = "title-section">
+                <h3>Descripcion</h3>
+                <h3>Monto</h3>
+                <h3>Delivery</h3>
+            </div>
+            <div class = "form-section">
+                <form (ngSubmit) = "registroVenta()" id = "venta-form" #registrarForm="ngForm">
+                    <label>
+                        <textarea form="venta-form" id = "descripcion" [(ngModel)] = "venta.descripcion" name ="descripcion" placeholder="Descripción del/los producto/s"></textarea>
+                    </label>
+                    <label>
+                        <input type ="text" id = "total" [(ngModel)] = "total" name ="total" placeholder="Valor total" (ngModelChange)="validateValue($event)" required pattern="[0-9]+([\.,][0-9]+)?" step="0.01">
+                    </label>
+                    <label>
+                        <input class = "check" type = "checkbox" id = "delivery" name ="delivery" (click) = "toggleDelivery()">
+                    </label>
+                    <div class = "form-btn">
+                        <button type = "submit" class= "popup-trigger" [disabled]="registrarForm.form.invalid">REGISTRAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class = "overlay2">
+        <div class = "popup-search2">
+            <div class = "popup-content2">
+                <span>Registrado con éxito</span>
+                <button type = "submit" class = "btn-buscar" [routerLink] = "['/clientemovimiento', codigoCCredito]">
+                    Finalizar
+                </button>
+            </div>
+        </div>
+    </div>
+</body>

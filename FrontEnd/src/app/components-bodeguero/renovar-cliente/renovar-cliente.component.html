@@ -1,0 +1,90 @@
+<body class = "trabFinanzas">
+    <div class = wrapper-box>
+        <div class = "upper-head">
+            <h1>REGISTRAR CLIENTE</h1>
+            <h3>Fecha {{date}}</h3>
+        </div>
+        <form (ngSubmit) = "registroCliente()" #registrarForm="ngForm">
+            <div class = "left-box">
+                <div class = "title-box-left">
+                    <h3>Nombre</h3>
+                    <h3>DNI</h3>
+                    <h3>Tipo tasa</h3>
+                    <h3>Valor</h3> 
+                    <h3>Moneda</h3>
+                </div>
+                <div class = "form-box-left">
+                    <label>
+                        <input type="text" class="form-control form-control-sm" id = "nombre" [(ngModel)] = "cliente.nombre" name ="precio"  value = "cliente.nombre" disabled>
+                    </label>
+                    <label>
+                        <input type="text" class="form-control form-control-sm" id = "DNI" [(ngModel)] = "cliente.dni" name ="dni" placeholder="DNI" value = "cliente.dni" disabled>
+                    </label>
+                    <label>
+                        <select class="form-control" id="tipoTasa" [(ngModel)] = "cuentaCredito.tipoTasa" name ="tipoTasas" disabled>
+                            <option disabled hidden value="undefined">{{cliente.cuentaCredito[0].tipoTasa}}</option>
+                            <option>Simple</option>
+                            <option>Nominal</option>
+                            <option>Efectivo</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input type="text" class="form-control form-control-sm" id = "valorTasa" [(ngModel)] = "cliente.cuentaCredito[0].valorTasa" name ="valorTasa"  value = "cliente.cuentaCredito[0].valorTasa" disabled>
+                    </label>
+                    <label>
+                        <select class="form-control" id="moneda" [(ngModel)] = "cuentaCredito.moneda" name ="moneda" required>
+                            <option disabled hidden value="undefined">Soles</option>
+                            <option>Soles</option>
+                            <option>Dolares</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class = "right-box">
+                <div class = "right-box-up">
+                    <div class = "title-box-right">
+                        <h3>Apellido</h3>
+                        <h3>Saldo</h3>
+                        <h3>Mantenimiento</h3>
+                    </div>
+                    <div class = "form-box-right">
+                        <label>
+                            <input type="text" class="form-control form-control-sm" id = "apellido" [(ngModel)] = "cliente.apellido" name ="apellido" value="cliente.apellido" disabled>
+                        </label>
+                        <label>
+                            <input type="text" class="form-control form-control-sm" id = "saldoDisponible" [(ngModel)] = "cuentaCredito.saldoDisponible" name ="saldoDisponible" placeholder="Saldo" required pattern="[0-9]{0,}">
+                        </label>
+                        <label>
+                            <input type="text" class="form-control form-control-sm" id = "saldoDisponible" name ="saldoDisponible" value="S/ 5.00" disabled>
+                        </label>
+                    </div>
+                </div>
+                <div class = "right-box-down">
+                    <div class = "title-box-right">
+                        <h3>Apertura</h3>
+                        <h3>Límite</h3>
+                    </div>
+                    <div class = "form-box-right2">
+                        <label>
+                            <h3>{{date}}</h3>
+                        </label>
+                        <label>
+                            <h3>{{datelimit}}</h3>
+                        </label>
+                        <button type = "submit" class= "popup-trigger2" [disabled]="registrarForm.form.invalid">Crear cuenta</button>
+                    </div>
+                </div>    
+            </div>                
+        </form>
+    </div>
+    <div class = "overlay2">
+        <div class = "popup-search2">
+            <div class = "popup-content2">
+                <span>Registrado con éxito</span>
+                <button type = "submit" class = "btn-buscar" routerLink = "/listaclientes/1">
+                    Finalizar
+                </button>
+            </div>
+        </div>
+    </div>
+</body>

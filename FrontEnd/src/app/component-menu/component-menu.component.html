@@ -1,0 +1,82 @@
+<body class = "trabFinanzas">
+    <img class = "img-fondo" src = "https://image.freepik.com/vector-gratis/rectangulos-abstractos-fondo-blanco-azul_41814-168.jpg">
+    <div class = "general-navbar">
+        <img class="img-logo" src="../assets/img/TuMonedita.png" routerLink = "/login">
+        <!-- <div class = "icon-logo" routerLink = "/">
+            <h3>Logo aqui!</h3>
+         </div> -->
+        <div class = "menu-wrap2">
+            <div class = "item-section">
+                <div class = "operacion-section">
+                    <span class = "title-section">Operación</span>
+                </div>
+            </div>
+        </div>
+        <div class = "menu-wrap">
+            <div class = "item-section">
+                <div class = "cliente-section">
+                    <span class = "title-section">Cliente</span>
+                 </div>
+            </div>
+        </div>
+        <div class = "registro-btn" routerLink = "/newcliente/1">
+            <span>Registrar cliente</span>
+        </div>
+        <div class = "item-nav">
+            <li class = "cliente-item">  
+                <span class="txtsubop2">CLIENTE</span>
+                <ul class="txtsubop">
+                    <a href = "listaclientes/1">Lista clientes</a>
+                </ul>
+                <ul class="txtsubop">
+                    <a href = "cuentasactivas/1">Cuentas activas</a>
+                </ul>
+                <ul class="txtsubop">
+                    <a href = "cuentasinactivas/1">Cuentas inactivas</a>
+                </ul>
+            </li>
+        </div>
+        <div class = "item-nav2">
+            <li class = "operacion-item">
+                <span class="txtsubop2">OPERACIÓN</span>
+                <ul class="txtsubop">
+                    <a class = "popup-trigger" style="margin-right: 10%;" (click) = "activarRegistro()">Registrar venta</a>
+                </ul>
+                <ul class="txtsubop">
+                    <a class = "popup-trigger" (click) = "activarLiquidar()">Líquidar cuenta</a>
+                </ul>
+                <ul class="txtsubop">
+                    <a class = "popup-trigger" (click) = "activarRenovar()">Renovar cuenta</a>
+                </ul>
+            </li>
+        </div>
+    </div>
+    <div class = "overlay">
+        <div class = "popup-search">
+            <span class="icon-cross"></span>
+            <div class = "popup-content">
+                <form *ngIf = "verificaRegistro()" (ngSubmit) = "buscarClienteRegistro()" #registrarForm="ngForm">
+                    <span>Ingrese el DNI</span>
+                    <input type="text" placeholder="DNI" id = "dni" [(ngModel)] = "dni" name ="dni" required pattern="[0-9]{8}">
+                    <button type = "submit" class = "btn-buscar"[disabled]="registrarForm.form.invalid">
+                        Buscar
+                    </button>
+                </form>
+                <form *ngIf = "verificaLiquidar()" (ngSubmit) = "buscarClienteLiquidar()" #registrarForm="ngForm">
+                    <span>Ingrese el DNI</span>
+                    <input type="text" placeholder="DNI" id = "dni" [(ngModel)] = "dni" name ="dni"  required pattern="[0-9]{8}">
+                    <button type = "submit" class = "btn-buscar" [disabled]="registrarForm.form.invalid">
+                        Buscar
+                    </button>
+                </form>
+                <form *ngIf = "verificaRenovar()" (ngSubmit) = "buscarClienteRenovar()" #registrarForm="ngForm">
+                    <span>Ingrese el DNI</span>
+                    <input type="text" placeholder="DNI" id = "dni" [(ngModel)] = "dni" name ="dni" required pattern="[0-9]{8}">
+                    <button type = "submit" class = "btn-buscar" [disabled]="registrarForm.form.invalid">
+                        Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

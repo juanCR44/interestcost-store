@@ -1,0 +1,47 @@
+<body class = "trabFinanzas">
+    <img class = "img-fondo" src = "https://image.freepik.com/vector-gratis/rectangulos-abstractos-fondo-blanco-azul_41814-168.jpg">
+    <div class = "wrapper-box">
+        <div class = "header-content">
+            <h1>DEUDA</h1>
+            <h3>Moneda: {{cuentaCredito.moneda}}</h3>
+        </div>
+        <div class = "main-content">
+            <div class = "left-content">
+                <h3>Cliente: {{cuentaCredito.cliente.nombre}}</h3>
+                <h3 *ngIf ="esInactivo()">Fecha apertura: {{fechaApertura}}</h3>
+                <h3>Fecha límite: {{fechaLimite}}</h3>
+                <h3 *ngIf ="esActivo()">Fecha actual: {{fechaAct}}</h3>
+                <h3 *ngIf ="esInactivo()">Fecha pago: {{calcFechaPago()}}</h3>
+            </div>
+            <div class = "right-content">
+                <h3>Concepto: Importe</h3>
+                <h3>Consumo: {{consumo}}</h3>
+                <h3>Mantenimiento: S/.5.00</h3>
+                <h3>Interés: {{interes}}</h3>
+                <h3>Mora: {{cuentaCredito.deuda.mora}}</h3>
+                <h3>Total: {{total}}</h3>
+            </div>
+        </div>
+        <div class = "btn-content">
+            <div *ngIf = "esActivo()" class = "liquidar-btn" (click) = "registrarPago()">
+                <span>CONTACTAR</span>
+            </div>
+            <div *ngIf = "esActivo()" class = "imprimir-btn2" (click) = "registrarPago()">
+                <span>IMPRIMIR</span>
+            </div>
+            <div *ngIf = "esInactivo()" class = "imprimir-btn">
+                <span>IMPRIMIR</span>
+            </div>
+        </div>
+    </div>
+    <div class = "overlay">
+        <div class = "popup-search">
+            <div class = "popup-content">
+                <span>Registrado con éxito</span>
+                <button type = "submit" class = "btn-buscar" routerLink = "/cuentacredito/1">
+                    Finalizar
+                </button>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,35 @@
+<body class = "trabFinanzas">
+    <div class = wrapper-box>
+        <div class = "upper-head">
+            <h1>CUENTAS INACTIVAS</h1>
+            <div class = "search-cliente">
+              <h4>Buscar por DNI</h4>
+              <span class="icon-search"></span>
+              <form (ngSubmit) = "buscarCliente()" class = "search-bar" #registrarForm="ngForm">
+                  <input type = "text" class="form-control" id="dni" [(ngModel)]="dni" name="dni" placeholder="DNI" required required pattern="[0-9]{8}">
+                  <button type ="submit" [disabled]="registrarForm.form.invalid">buscar</button>
+              </form>
+          </div>
+        </div>
+        <div class = "table-list">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-bordered table-striped mb-0">
+                  <thead class = "title-table">
+                    <tr>
+                      <th scope="col">DNI</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Fecha pago</th>
+                    </tr>
+                  </thead>
+                  <tbody class = "content-table">
+                    <tr *ngFor="let p of cuentaCredito;let index = index; let lastcall = last">
+                      <td class = "link-td" [routerLink] = "['/detalledeuda', p.id, 25]">{{p.cliente.dni}}</td>
+                      <td>{{p.cliente.nombre}}</td>
+                      <td>{{calcFechaPago(index)}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
